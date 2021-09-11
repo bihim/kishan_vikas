@@ -1,8 +1,12 @@
+import 'package:carousel_slider/carousel_controller.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 
 class HomeController extends GetxController {
   var logger = Logger();
+  var carouselController = CarouselController();
+  var initialItemCarousel = 0.obs;
+  var initialItemCarousel2 = 0.obs;
 
   @override
   void onInit() {
@@ -19,9 +23,6 @@ class HomeController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    logger.d("OnInit");
+    logger.d("OnReady");
   }
-
-  
-
 }

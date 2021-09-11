@@ -24,99 +24,6 @@ class HomeBodyComponents extends StatelessWidget {
         SizedBox(
           height: 5.h,
         ),
-        Padding(
-        padding: EdgeInsets.all(3.h),
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.grey.shade200,
-            borderRadius: BorderRadius.circular(
-              2.h,
-            ),
-          ),
-          width: double.infinity,
-          child: Padding(
-            padding: EdgeInsets.all(1.h),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    RichText(
-                      text: TextSpan(
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                        children: [
-                          TextSpan(text: "Browse by "),
-                          TextSpan(
-                            text: "Category",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Row(
-                        children: [
-                          Text(
-                            "View More",
-                            style: TextStyle(
-                              color: Colors.grey.shade600,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Icon(
-                            Icons.menu,
-                            color: Colors.grey.shade600,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                GridView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2),
-                  itemCount: GlobalVals.demoProductListing.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: EdgeInsets.all(0.4.h),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(2.h),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(GlobalVals
-                                .demoHomeGridValues[index].imageUrl),
-                            SizedBox(
-                              height: 1.h,
-                            ),
-                            Text(
-                              GlobalVals.demoHomeGridValues[index].name,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ],
-            ),
-          ),
-        ),
-      )
       ],
     );
   }
@@ -343,4 +250,6 @@ class HomeBodyComponents extends StatelessWidget {
       ),
     );
   }
+
+
 }
