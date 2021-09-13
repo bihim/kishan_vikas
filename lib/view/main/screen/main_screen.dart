@@ -40,7 +40,7 @@ class MainScreen extends StatelessWidget {
           Icon(Icons.home_outlined),
           Icon(Icons.favorite_border),
           Icon(Icons.add),
-          Icon(Icons.notifications_outlined),
+          Icon(Icons.chat_outlined),
           Icon(Icons.person_outline),
         ],
         onTap: (index) {

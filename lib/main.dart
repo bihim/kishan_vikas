@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kishan_vikas/bindings/home_bind.dart';
 import 'package:kishan_vikas/bindings/main_binding.dart';
 import 'package:kishan_vikas/bindings/product_details_binding.dart';
-import 'package:kishan_vikas/view/home/screen/home_screen.dart';
+import 'package:kishan_vikas/view/auth/screen/login_screen.dart';
 import 'package:kishan_vikas/view/main/screen/main_screen.dart';
 import 'package:kishan_vikas/view/product_details/screen/product_details_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -33,6 +32,11 @@ class MyApp extends StatelessWidget {
             name: Routes.productDetailsScreen,
             page: () => ProductDetailsScreen(),
             binding: ProductDetailsBinding(), 
+          ),
+          GetPage(
+            name: Routes.login,
+            page: () => LoginScreen(),
+            //binding: ProductDetailsBinding(), 
           ),
         ],
       );

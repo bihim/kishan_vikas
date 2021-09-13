@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:kishan_vikas/global/global_vals.dart';
+import 'package:kishan_vikas/routes/routes.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MainScreenNavigationDrawer extends StatelessWidget {
@@ -23,7 +25,9 @@ class MainScreenNavigationDrawer extends StatelessWidget {
                     height: 2.h,
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed(Routes.login);
+                    },
                     child: Text("Login"),
                   ),
                 ],

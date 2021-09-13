@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kishan_vikas/global/global_vals.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -81,7 +82,8 @@ class ProductDetailsScreen extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              launch("tel://214324234");
+              //launch("tel://214324234");
+              Fluttertoast.showToast(msg: "Message Clicked");
             },
             child: Row(
               children: [
@@ -119,10 +121,7 @@ class ProductDetailsScreen extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.black,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(2.h),
-          bottomRight: Radius.circular(2.h),
-        ),
+        borderRadius: BorderRadius.only(),
       ),
       child: Padding(
         padding: EdgeInsets.all(2.h),
@@ -205,10 +204,7 @@ class ProductDetailsScreen extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.black,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(2.h),
-          bottomRight: Radius.circular(2.h),
-        ),
+        borderRadius: BorderRadius.only(),
       ),
       child: Padding(
         padding: EdgeInsets.all(2.h),
@@ -319,10 +315,7 @@ class ProductDetailsScreen extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.black,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(2.h),
-          bottomRight: Radius.circular(2.h),
-        ),
+        borderRadius: BorderRadius.only(),
       ),
       child: Padding(
         padding: EdgeInsets.all(2.h),
@@ -411,10 +404,7 @@ class ProductDetailsScreen extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.black,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(2.h),
-          bottomRight: Radius.circular(2.h),
-        ),
+        borderRadius: BorderRadius.only(),
       ),
       child: Padding(
         padding: EdgeInsets.all(2.h),

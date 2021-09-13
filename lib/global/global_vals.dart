@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:kishan_vikas/models/chat_model.dart';
 import 'package:kishan_vikas/models/drawer_social_icon_model.dart';
 import 'package:kishan_vikas/models/home_grid_model.dart';
 import 'package:kishan_vikas/models/home_items_model.dart';
 import 'package:kishan_vikas/view/account/screen/account_screen.dart';
+import 'package:kishan_vikas/view/chat/screen/chat_screen.dart';
 import 'package:kishan_vikas/view/home/screen/home_screen.dart';
-import 'package:kishan_vikas/view/notification/screen/notification_screen.dart';
 import 'package:kishan_vikas/view/post_add/screen/post_add_screen.dart';
 import 'package:kishan_vikas/view/wishlist/screen/wishlist_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -17,7 +18,7 @@ class GlobalVals {
     HomeScreen(),
     WishListScreen(),
     PostAddScreen(),
-    NotificationScreen(),
+    ChatScreen(),
     AccountScreen(),
   ];
 
@@ -246,10 +247,25 @@ class GlobalVals {
   ];
 
   static var drawerIcons = [
-    DrawerSocialIconModel(id: 1, iconName: Ionicons.logo_facebook, iconColor: 0xFF4267B2),
-    DrawerSocialIconModel(id: 2, iconName: Ionicons.logo_twitter, iconColor: 0xFF1DA1F2),
-    DrawerSocialIconModel(id: 3, iconName: Ionicons.logo_pinterest, iconColor: 0xFFE60023),
-    DrawerSocialIconModel(id: 4, iconName: Ionicons.logo_linkedin, iconColor: 0xFF0077b5),
-    DrawerSocialIconModel(id: 5, iconName: Ionicons.logo_youtube, iconColor: 0xFFFF0000),
+    DrawerSocialIconModel(
+        id: 1, iconName: Ionicons.logo_facebook, iconColor: 0xFF4267B2),
+    DrawerSocialIconModel(
+        id: 2, iconName: Ionicons.logo_twitter, iconColor: 0xFF1DA1F2),
+    DrawerSocialIconModel(
+        id: 3, iconName: Ionicons.logo_pinterest, iconColor: 0xFFE60023),
+    DrawerSocialIconModel(
+        id: 4, iconName: Ionicons.logo_linkedin, iconColor: 0xFF0077b5),
+    DrawerSocialIconModel(
+        id: 5, iconName: Ionicons.logo_youtube, iconColor: 0xFFFF0000),
+  ];
+
+  static var chatLists = [
+    ChatModel(chatId: 1, profileUrl: "assets/product1.png", userName: "User One", productName: "Pesticides", message: "This is new one", date: "31 Aug 12:47 AM"),
+    ChatModel(chatId: 1, profileUrl: "assets/product1.png", userName: "User One", productName: "Pesticides", message: "This is new one", date: "31 Aug 12:47 AM"),
+    ChatModel(chatId: 1, profileUrl: "assets/product1.png", userName: "User One", productName: "Pesticides", message: "This is new one", date: "31 Aug 12:47 AM"),
+    ChatModel(chatId: 1, profileUrl: "assets/product1.png", userName: "User One", productName: "Pesticides", message: "This is new one", date: "31 Aug 12:47 AM"),
+    ChatModel(chatId: 1, profileUrl: "assets/product1.png", userName: "User One", productName: "Pesticides", message: "This is new one", date: "31 Aug 12:47 AM"),
+    ChatModel(chatId: 1, profileUrl: "assets/product1.png", userName: "User One", productName: "Pesticides", message: "This is new one", date: "31 Aug 12:47 AM"),
+    ChatModel(chatId: 1, profileUrl: "assets/product1.png", userName: "User One", productName: "Pesticides", message: "This is new one", date: "31 Aug 12:47 AM"),
   ];
 }
