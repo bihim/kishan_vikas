@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kishan_vikas/models/chat_model.dart';
+import 'package:kishan_vikas/models/drawer_items_model.dart';
 import 'package:kishan_vikas/models/drawer_social_icon_model.dart';
 import 'package:kishan_vikas/models/home_grid_model.dart';
 import 'package:kishan_vikas/models/home_items_model.dart';
+import 'package:kishan_vikas/models/notification_model.dart';
 import 'package:kishan_vikas/view/account/screen/account_screen.dart';
 import 'package:kishan_vikas/view/chat/screen/chat_screen.dart';
 import 'package:kishan_vikas/view/home/screen/home_screen.dart';
@@ -18,6 +20,13 @@ class GlobalVals {
     HomeScreen(),
     WishListScreen(),
     PostAddScreen(),
+    ChatScreen(),
+    AccountScreen(),
+  ];
+
+  static var bottomNavAnimatedScreens = [
+    HomeScreen(),
+    WishListScreen(),
     ChatScreen(),
     AccountScreen(),
   ];
@@ -167,7 +176,7 @@ class GlobalVals {
     HomeItemsModel(
         id: 1,
         imageItem: 1,
-        imageUrl: "assets/product1.png",
+        imageUrl: "assets/product2.JPG",
         productTitle: "Lethal Super 505",
         productDate: "Aug 24th, 2021 at 15:36",
         productDescription: "Pesticides and Fertilizer",
@@ -187,7 +196,7 @@ class GlobalVals {
     HomeItemsModel(
         id: 1,
         imageItem: 1,
-        imageUrl: "assets/product1.png",
+        imageUrl: "assets/product2.JPG",
         productTitle: "Lethal Super 505",
         productDate: "Aug 24th, 2021 at 15:36",
         productDescription: "Pesticides and Fertilizer",
@@ -207,7 +216,7 @@ class GlobalVals {
     HomeItemsModel(
         id: 1,
         imageItem: 1,
-        imageUrl: "assets/product1.png",
+        imageUrl: "assets/product2.JPG",
         productTitle: "Lethal Super 505",
         productDate: "Aug 24th, 2021 at 15:36",
         productDescription: "Pesticides and Fertilizer",
@@ -227,7 +236,7 @@ class GlobalVals {
     HomeItemsModel(
         id: 1,
         imageItem: 1,
-        imageUrl: "assets/product1.png",
+        imageUrl: "assets/product2.JPG",
         productTitle: "Lethal Super 505",
         productDate: "Aug 24th, 2021 at 15:36",
         productDescription: "Pesticides and Fertilizer",
@@ -238,6 +247,16 @@ class GlobalVals {
         id: 1,
         imageItem: 1,
         imageUrl: "assets/product1.png",
+        productTitle: "Lethal Super 505",
+        productDate: "Aug 24th, 2021 at 15:36",
+        productDescription: "Pesticides and Fertilizer",
+        location: "Kolkata",
+        price: "300",
+        isWishListed: false),
+    HomeItemsModel(
+        id: 1,
+        imageItem: 1,
+        imageUrl: "assets/product2.JPG",
         productTitle: "Lethal Super 505",
         productDate: "Aug 24th, 2021 at 15:36",
         productDescription: "Pesticides and Fertilizer",
@@ -260,12 +279,99 @@ class GlobalVals {
   ];
 
   static var chatLists = [
-    ChatModel(chatId: 1, profileUrl: "assets/product1.png", userName: "User One", productName: "Pesticides", message: "This is new one", date: "31 Aug 12:47 AM"),
-    ChatModel(chatId: 1, profileUrl: "assets/product1.png", userName: "User One", productName: "Pesticides", message: "This is new one", date: "31 Aug 12:47 AM"),
-    ChatModel(chatId: 1, profileUrl: "assets/product1.png", userName: "User One", productName: "Pesticides", message: "This is new one", date: "31 Aug 12:47 AM"),
-    ChatModel(chatId: 1, profileUrl: "assets/product1.png", userName: "User One", productName: "Pesticides", message: "This is new one", date: "31 Aug 12:47 AM"),
-    ChatModel(chatId: 1, profileUrl: "assets/product1.png", userName: "User One", productName: "Pesticides", message: "This is new one", date: "31 Aug 12:47 AM"),
-    ChatModel(chatId: 1, profileUrl: "assets/product1.png", userName: "User One", productName: "Pesticides", message: "This is new one", date: "31 Aug 12:47 AM"),
-    ChatModel(chatId: 1, profileUrl: "assets/product1.png", userName: "User One", productName: "Pesticides", message: "This is new one", date: "31 Aug 12:47 AM"),
+    ChatModel(
+        chatId: 1,
+        profileUrl: "assets/product1.png",
+        userName: "User One",
+        productName: "Pesticides",
+        message: "This is new one",
+        date: "31 Aug 12:47 AM"),
+    ChatModel(
+        chatId: 1,
+        profileUrl: "assets/product2.JPG",
+        userName: "User One",
+        productName: "Pesticides",
+        message: "This is new one",
+        date: "31 Aug 12:47 AM"),
+    ChatModel(
+        chatId: 1,
+        profileUrl: "assets/product1.png",
+        userName: "User One",
+        productName: "Pesticides",
+        message: "This is new one",
+        date: "31 Aug 12:47 AM"),
+    ChatModel(
+        chatId: 1,
+        profileUrl: "assets/product2.JPG",
+        userName: "User One",
+        productName: "Pesticides",
+        message: "This is new one",
+        date: "31 Aug 12:47 AM"),
+    ChatModel(
+        chatId: 1,
+        profileUrl: "assets/product1.png",
+        userName: "User One",
+        productName: "Pesticides",
+        message: "This is new one",
+        date: "31 Aug 12:47 AM"),
+    ChatModel(
+        chatId: 1,
+        profileUrl: "assets/product1.png",
+        userName: "User One",
+        productName: "Pesticides",
+        message: "This is new one",
+        date: "31 Aug 12:47 AM"),
+    ChatModel(
+        chatId: 1,
+        profileUrl: "assets/product1.png",
+        userName: "User One",
+        productName: "Pesticides",
+        message: "This is new one",
+        date: "31 Aug 12:47 AM"),
+  ];
+
+  static var drawerItems = [
+    DrawerItemModel(id: 1, name: "Categories", icon: Icons.widgets_outlined),
+    DrawerItemModel(
+        id: 2, name: "Favorites", icon: Icons.favorite_outline_outlined),
+    DrawerItemModel(id: 3, name: "My Ads", icon: Icons.library_add_outlined),
+    DrawerItemModel(id: 4, name: "Chats", icon: Icons.chat_outlined),
+    DrawerItemModel(id: 5, name: "Pages", icon: Icons.layers_outlined),
+    DrawerItemModel(id: 6, name: "Settings", icon: Icons.settings_outlined),
+    DrawerItemModel(id: 7, name: "Contact", icon: Icons.call_outlined),
+    DrawerItemModel(id: 8, name: "Logout", icon: Icons.logout_outlined),
+  ];
+  static var subCategories = [
+    "TATA Tractor",
+    "BMW Tractor",
+    "Cheap Tractor",
+    "Small Tractor",
+    "Heavy Duty Tractor"
+  ];
+  static var notificationData = [
+    NotificationModel(
+        id: 1,
+        date: "12 Aug, 2021 12:24pm",
+        title: "Buy new tractor at cheap price",
+        subtitle: "You can buy it with 0% interest rate"),
+        NotificationModel(
+        id: 1,
+        date: "12 Aug, 2021 12:24pm",
+        title: "Buy new tractor at cheap price",
+        subtitle: "You can buy it with 0% interest rate"),
+        NotificationModel(
+        id: 1,
+        date: "12 Aug, 2021 12:24pm",
+        title: "Buy new tractor at cheap price",
+        subtitle: "You can buy it with 0% interest rate"),NotificationModel(
+        id: 1,
+        date: "12 Aug, 2021 12:24pm",
+        title: "Buy new tractor at cheap price",
+        subtitle: "You can buy it with 0% interest rate"),
+        NotificationModel(
+        id: 1,
+        date: "12 Aug, 2021 12:24pm",
+        title: "Buy new tractor at cheap price",
+        subtitle: "You can buy it with 0% interest rate"),
   ];
 }

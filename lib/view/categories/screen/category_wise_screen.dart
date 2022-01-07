@@ -1,17 +1,121 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:kishan_vikas/global/global_vals.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class WishListScreen extends StatelessWidget {
-  const WishListScreen({Key? key}) : super(key: key);
-
+class CategoryWiseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      child: //_noData(),
-          _listItems(),
+    return Scaffold(
+      backgroundColor: Colors.grey.shade900,
+      appBar: AppBar(
+        toolbarHeight: 15.h,
+        automaticallyImplyLeading: false,
+        title: Column(
+          children: [
+            Container(
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: Get.arguments["id"] ?? "Category",
+                  fillColor: Colors.grey.shade700,
+                  filled: true,
+                  prefixIcon: IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: Colors.grey.shade300,
+                    ),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(1.h),
+                    borderSide: BorderSide(
+                      width: 0,
+                      style: BorderStyle.none,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 1.h,
+            ),
+            Container(
+              width: double.infinity,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  _filterButton("Location", Icons.place_outlined, _sortDialog),
+                  Container(
+                    color: Colors.white,
+                    height: 3.h,
+                    width: 0.1.w,
+                  ),
+                  _filterButton("Sort", Icons.sort_outlined, _sortDialog),
+                  Container(
+                    color: Colors.white,
+                    height: 3.h,
+                    width: 0.1.w,
+                  ),
+                  _filterButton(
+                      "Filter", Icons.filter_alt_outlined, _sortDialog),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: _listItems(),
+    );
+  }
+
+  void _sortDialog() {
+    Get.defaultDialog(
+      title: "Sort By",
+      content: Column(
+        children: [
+          ListTile(
+            title: Text("Best Match"),
+            onTap: (){},
+          ),
+          ListTile(
+            title: Text("Latest Posted"),
+            onTap: (){},
+          ),
+          ListTile(
+            title: Text("Lowest Price"),
+            onTap: (){},
+          ),
+          ListTile(
+            title: Text("Highest Price"),
+            onTap: (){},
+          ),
+        ],
+      ),
+    );
+  }
+
+  TextButton _filterButton(
+      String buttonText, IconData iconData, VoidCallback voidCallback) {
+    return TextButton(
+      onPressed: voidCallback,
+      child: Row(
+        children: [
+          Icon(
+            iconData,
+            color: Colors.white,
+            size: 2.5.h,
+          ),
+          SizedBox(
+            width: 2.w,
+          ),
+          Text(
+            buttonText,
+            style: TextStyle(color: Colors.white),
+          ),
+        ],
+      ),
     );
   }
 
@@ -58,8 +162,7 @@ class WishListScreen extends StatelessWidget {
                             IconButton(
                               onPressed: () {},
                               icon: Icon(
-                                Icons.favorite,
-                                color: Colors.red,
+                                Icons.favorite_outline,
                               ),
                             )
                           ],
@@ -123,30 +226,6 @@ class WishListScreen extends StatelessWidget {
         );
       },
       itemCount: GlobalVals.demoProductListing.length,
-    );
-  }
-
-  Column _noData() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        SvgPicture.asset(
-          "assets/wish_list.svg",
-          height: 30.h,
-          width: 65.w,
-        ),
-        SizedBox(
-          height: 5.h,
-        ),
-        Text(
-          "No Wishlist Added",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20.sp,
-          ),
-        ),
-      ],
     );
   }
 }

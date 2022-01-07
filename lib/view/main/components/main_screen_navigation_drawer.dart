@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:kishan_vikas/global/global_vals.dart';
-import 'package:kishan_vikas/routes/routes.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MainScreenNavigationDrawer extends StatelessWidget {
@@ -15,7 +13,13 @@ class MainScreenNavigationDrawer extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.grey.shade900,
               ),
-              child: Column(
+              child: Center(
+                child: Image.asset(
+                  "assets/logo.png",
+                  width: 30.w,
+                ),
+              ),
+              /* Column(
                 children: [
                   Image.asset(
                     "assets/logo.png",
@@ -31,17 +35,27 @@ class MainScreenNavigationDrawer extends StatelessWidget {
                     child: Text("Login"),
                   ),
                 ],
-              ),
+              ), */
             ),
-            ListTile(
-              title: Text(
-                "Add Listing",
-                style: TextStyle(
-                  color: Colors.grey.shade200,
-                ),
-              ),
-              onTap: () {},
-            )
+            ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: GlobalVals.drawerItems.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: Icon(
+                    GlobalVals.drawerItems[index].icon,
+                  ),
+                  title: Text(
+                    GlobalVals.drawerItems[index].name,
+                    style: TextStyle(
+                      color: Colors.grey.shade200,
+                    ),
+                  ),
+                  onTap: () {},
+                );
+              },
+            ),
           ],
         ),
         bottomNavigationBar: Padding(

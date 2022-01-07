@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:kishan_vikas/controllers/home_controller.dart';
 import 'package:kishan_vikas/global/global_vals.dart';
@@ -10,38 +11,317 @@ class HomeScreen extends StatelessWidget {
   final HomeController _homeController = Get.find();
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => SingleChildScrollView(
-        child: Container(
-          child: Column(
+    return SingleChildScrollView(
+      child: Container(
+        child: Column(
+          children: [
+            _bannerItems(),
+            SizedBox(
+              height: 6.h,
+            ),
+            _itemLists(),
+            SizedBox(
+              height: 1.h,
+            ),
+            _featureAds(),
+            SizedBox(
+              height: 1.h,
+            ),
+            _trendingProducts(),
+            SizedBox(
+              height: 5.h,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Column _trendingProducts() {
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.all(2.h),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _bannerItems(),
-              SizedBox(
-                height: 2.h,
+              Text(
+                "Trending Ads",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17.sp,
+                ),
               ),
-              _bannerSlider(context),
-              SizedBox(
-                height: 4.h,
+              TextButton(
+                onPressed: () {},
+                child: Text("View More"),
               ),
-              //_itemLists(),
-              _browseByCategory(),
-              SizedBox(
-                height: 2.h,
-              ),
-              _bannerSlider2(context),
-              SizedBox(
-                height: 2.h,
-              ),
-              _latestAds(),
-              SizedBox(
-                height: 2.h,
-              ),
-              _chooseCityOrRegion(),
-              _aboutUs(),
-              _bannerSlider3(context),
             ],
           ),
         ),
+        GridView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 0.75,
+          ),
+          itemCount: GlobalVals.demoProductListing.length,
+          itemBuilder: (context, index) {
+            return Column(
+              children: [
+                Container(
+                  color: Colors.black,
+                  width: double.infinity,
+                  child: Padding(
+                    padding: EdgeInsets.all(2.h),
+                    child: Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(2.h),
+                              child: Container(
+                                color: Colors.white,
+                                child: Image.asset(
+                                  GlobalVals.demoProductListing[index].imageUrl,
+                                  fit: BoxFit.cover,
+                                  height: 15.h,
+                                  width: 45.w,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 1.h,
+                            ),
+                            Text(
+                              GlobalVals.demoProductListing[index].productTitle,
+                            ),
+                            SizedBox(
+                              height: 2.h,
+                            ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.place_outlined,
+                                  size: 1.5.h,
+                                  color: Colors.grey,
+                                ),
+                                SizedBox(width: 1.w),
+                                Text(
+                                  GlobalVals.demoProductListing[index].location,
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 2.h,
+                            ),
+                            Text(
+                              "₹ ${GlobalVals.demoProductListing[index].price}",
+                            ),
+                          ],
+                        ),
+                        onTap: () {
+                          Get.toNamed(Routes.productDetailsScreen);
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  color: Colors.grey.shade900,
+                  height: 2.h,
+                ),
+              ],
+            );
+          },
+        )
+      ],
+    );
+  }
+
+  Column _featureAds() {
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.all(2.h),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Featured Ads",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17.sp,
+                ),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text("View More"),
+              ),
+            ],
+          ),
+        ),
+        Container(
+          height: 32.h,
+          color: Colors.black,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: GlobalVals.demoProductListing.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: EdgeInsets.all(2.h),
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(2.h),
+                          child: Container(
+                            color: Colors.white,
+                            child: Image.asset(
+                              GlobalVals.demoProductListing[index].imageUrl,
+                              fit: BoxFit.cover,
+                              height: 15.h,
+                              width: 45.w,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Text(
+                          GlobalVals.demoProductListing[index].productTitle,
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.place_outlined,
+                              size: 1.5.h,
+                              color: Colors.grey,
+                            ),
+                            SizedBox(width: 1.w),
+                            Text(
+                              GlobalVals.demoProductListing[index].location,
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                        Text(
+                          "₹ ${GlobalVals.demoProductListing[index].price}",
+                        ),
+                      ],
+                    ),
+                    onTap: () {
+                      Get.toNamed(Routes.productDetailsScreen);
+                    },
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  Column _oldDesign(BuildContext context) {
+    return Column(
+      children: [
+        _bannerItems(),
+        SizedBox(
+          height: 4.h,
+        ),
+        _bannerSlider(context),
+        SizedBox(
+          height: 4.h,
+        ),
+        //_itemLists(),
+        _browseByCategory(),
+        SizedBox(
+          height: 2.h,
+        ),
+        _bannerSlider2(context),
+        SizedBox(
+          height: 2.h,
+        ),
+        _latestAds(),
+        SizedBox(
+          height: 2.h,
+        ),
+        _chooseCityOrRegion(),
+        _aboutUs(),
+        _bannerSlider3(context),
+      ],
+    );
+  }
+
+  Widget _itemLists() {
+    return Container(
+      color: Colors.black,
+      child: GridView.builder(
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        gridDelegate:
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+        itemCount: GlobalVals.demoHomeGridValuesSVG.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: EdgeInsets.all(2.h),
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                child: Column(
+                  children: [
+                    SvgPicture.asset(
+                      GlobalVals.demoHomeGridValuesSVG[index].imageUrl,
+                      height: 5.h,
+                      width: 10.w,
+                    ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    Text(
+                      GlobalVals.demoHomeGridValuesSVG[index].name,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 13.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                onTap: () {
+                  Get.toNamed(
+                    Routes.categoryWise,
+                    arguments: {
+                      "id": GlobalVals.demoHomeGridValuesSVG[index].name,
+                    },
+                  );
+                },
+              ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -282,15 +562,15 @@ class HomeScreen extends StatelessWidget {
                 height: 12.0,
                 margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                 decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: (Theme.of(context).brightness == Brightness.dark
-                            ? Colors.white
-                            : Colors.black)
-                        .withOpacity(
-                            _homeController.initialItemCarousel2.value ==
-                                    entry.key
-                                ? 0.9
-                                : 0.4)),
+                  shape: BoxShape.circle,
+                  color: (Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Colors.black)
+                      .withOpacity(_homeController.initialItemCarousel2.value ==
+                              entry.key
+                          ? 0.9
+                          : 0.4),
+                ),
               ),
             );
           }).toList(),
